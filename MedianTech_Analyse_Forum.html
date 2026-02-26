@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Median Technologies — Analyse & Perspectives 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #05080f;
+    --surface: #0c1220;
+    --surface2: #111d30;
+    --border: #1a2840;
+    --accent: #06b6d4;
+    --green: #10b981;
+    --purple: #a78bfa;
+    --warn: #f59e0b;
+    --danger: #f87171;
+    --text: #cbd5e1;
+    --heading: #f0f6ff;
+    --muted: #4a6080;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14.5px; line-height: 1.7;
+    padding: 28px 18px 60px;
+  }
+  .wrap { max-width: 900px; margin: 0 auto; }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #0c1220, #0d1a2e);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--accent);
+    border-radius: 14px; padding: 26px 28px 22px;
+    margin-bottom: 28px; position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '🫁';
+    position: absolute; right: 28px; top: 50%;
+    transform: translateY(-50%);
+    font-size: 80px; opacity: 0.07;
+    pointer-events: none;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(6,182,212,0.1); border: 1px solid rgba(6,182,212,0.25);
+    border-radius: 20px; padding: 4px 14px;
+    font-size: 11px; font-weight: 700; color: var(--accent);
+    letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 14px;
+  }
+  .hero h1 { font-size: 23px; font-weight: 800; color: var(--heading); line-height: 1.25; margin-bottom: 10px; }
+  .hero-meta { display: flex; flex-wrap: wrap; gap: 14px; font-size: 12px; color: var(--muted); }
+
+  /* ALERT BOX */
+  .alert-fda {
+    background: linear-gradient(135deg, rgba(16,185,129,0.08), rgba(6,182,212,0.05));
+    border: 1px solid rgba(16,185,129,0.35);
+    border-radius: 12px; padding: 18px 20px; margin-bottom: 24px;
+  }
+  .alert-fda .at { font-size: 11px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: var(--green); margin-bottom: 10px; }
+  .alert-fda p { color: #86efac; font-size: 14px; margin-bottom: 7px; }
+  .alert-fda p:last-child { margin-bottom: 0; }
+  .alert-fda strong { color: #dcfce7; }
+
+  /* SECTION LABEL */
+  .slbl { font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
+  .slbl::after { content:''; flex:1; height:1px; background:var(--border); }
+
+  /* KPI GRID */
+  .kg { display:grid; grid-template-columns: repeat(auto-fill, minmax(185px,1fr)); gap:10px; margin-bottom:28px; }
+  .kpi { background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:14px 16px; }
+  .kl { font-size:10.5px; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:5px; }
+  .kv { font-family:'DM Mono',monospace; font-size:19px; font-weight:500; color:var(--heading); margin-bottom:3px; }
+  .kd { font-family:'DM Mono',monospace; font-size:12px; font-weight:700; }
+  .kd.up { color:var(--green); } .kd.warn { color:var(--warn); } .kd.blue { color:var(--accent); } .kd.purple { color:var(--purple); }
+  .ks { font-size:10.5px; color:var(--muted); margin-top:2px; }
+
+  /* CARD */
+  .card { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:20px 22px; margin-bottom:12px; }
+  .card h3 { font-size:14.5px; font-weight:700; color:var(--heading); margin-bottom:11px; display:flex; align-items:center; gap:9px; }
+  .card h3 .ic { width:26px; height:26px; border-radius:6px; background:rgba(6,182,212,0.12); display:flex; align-items:center; justify-content:center; font-size:13px; flex-shrink:0; }
+  .card p { color:#8faabf; margin-bottom:9px; font-size:14px; }
+  .card p:last-child { margin-bottom:0; }
+  strong { color:var(--heading); font-weight:600; }
+  .hl { color:var(--green); font-weight:600; }
+  .hlb { color:var(--accent); font-weight:600; }
+  .hlw { color:var(--warn); font-weight:600; }
+  .hlr { color:var(--danger); font-weight:600; }
+  .hlp { color:var(--purple); font-weight:600; }
+
+  /* TABLE */
+  .dt { width:100%; border-collapse:collapse; font-size:13px; margin:10px 0; }
+  .dt th { text-align:left; padding:8px 10px; background:var(--surface2); color:var(--muted); font-size:10.5px; text-transform:uppercase; letter-spacing:1px; font-weight:600; }
+  .dt td { padding:8px 10px; border-bottom:1px solid var(--border); color:#8faabf; }
+  .dt tr:last-child td { border-bottom:none; }
+  .dt td:first-child { color:var(--heading); font-weight:600; }
+  .dt td.g { color:var(--green); font-family:'DM Mono',monospace; font-weight:700; }
+  .dt td.w { color:var(--warn); font-family:'DM Mono',monospace; font-weight:700; }
+  .dt td.b { color:var(--accent); font-family:'DM Mono',monospace; font-weight:700; }
+  .dt td.p { color:var(--purple); font-family:'DM Mono',monospace; font-weight:700; }
+  .dt td.mono { font-family:'DM Mono',monospace; }
+
+  /* LIST */
+  .ul { list-style:none; padding:0; }
+  .ul li { padding:4px 0 4px 20px; position:relative; color:#8faabf; font-size:14px; }
+  .ul li::before { content:'→'; position:absolute; left:0; color:var(--green); font-weight:700; }
+  .ul li.risk::before { content:'⚠'; color:var(--danger); font-size:11px; top:6px; }
+  .ul li.neu::before { content:'◆'; color:var(--accent); font-size:9px; top:7px; }
+
+  /* TIMELINE */
+  .tl { position:relative; padding-left:20px; }
+  .tl::before { content:''; position:absolute; left:6px; top:6px; bottom:6px; width:2px; background:var(--border); }
+  .tli { position:relative; padding-bottom:16px; }
+  .tli:last-child { padding-bottom:0; }
+  .tld { position:absolute; left:-18px; top:5px; width:10px; height:10px; border-radius:50%; border:2px solid var(--accent); background:var(--bg); }
+  .tld.green { border-color:var(--green); }
+  .tld.purple { border-color:var(--purple); }
+  .tldate { font-size:11px; font-family:'DM Mono',monospace; color:var(--accent); font-weight:600; margin-bottom:2px; }
+  .tllbl { font-size:13.5px; color:var(--heading); font-weight:600; }
+  .tldesc { font-size:12.5px; color:var(--muted); margin-top:2px; }
+
+  /* TAG */
+  .tag { display:inline-block; padding:2px 9px; border-radius:20px; font-size:11px; font-weight:700; }
+  .tg { background:rgba(16,185,129,0.12); color:var(--green); }
+  .tb { background:rgba(6,182,212,0.12); color:var(--accent); }
+  .tw { background:rgba(245,158,11,0.12); color:var(--warn); }
+  .tr { background:rgba(248,113,113,0.12); color:var(--danger); }
+  .tp { background:rgba(167,139,250,0.12); color:var(--purple); }
+
+  /* STAT HIGHLIGHT */
+  .stat-row { display:flex; gap:12px; flex-wrap:wrap; margin:12px 0; }
+  .stat { background:var(--surface2); border:1px solid var(--border); border-radius:8px; padding:10px 14px; flex:1; min-width:130px; }
+  .stat-v { font-family:'DM Mono',monospace; font-size:16px; font-weight:600; color:var(--heading); }
+  .stat-l { font-size:11px; color:var(--muted); margin-top:2px; }
+
+  /* PERSPECTIVES */
+  .pg { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-bottom:12px; }
+  @media(max-width:600px){ .pg{grid-template-columns:1fr;} }
+  .pc { background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:16px; }
+  .pc .hz { font-size:10.5px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; margin-bottom:8px; }
+  .pc h4 { font-size:13px; color:var(--heading); margin-bottom:6px; }
+  .pc ul { list-style:none; padding:0; }
+  .pc ul li { font-size:12.5px; color:var(--muted); padding:3px 0 3px 12px; position:relative; }
+  .pc ul li::before { content:'·'; position:absolute; left:0; font-weight:900; font-size:16px; top:-1px; }
+
+  /* MARCHÉ */
+  .mkt-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin:12px 0; }
+  @media(max-width:560px){ .mkt-grid{grid-template-columns:1fr;} }
+  .mkt { background:var(--surface2); border:1px solid var(--border); border-radius:8px; padding:14px; text-align:center; }
+  .mkt-n { font-size:11px; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px; }
+  .mkt-v { font-family:'DM Mono',monospace; font-size:18px; font-weight:600; }
+
+  /* VERDICT */
+  .verdict { background:linear-gradient(135deg,rgba(6,182,212,0.05),rgba(16,185,129,0.05)); border:1px solid rgba(6,182,212,0.2); border-radius:12px; padding:22px; }
+  .verdict .vt { font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--accent); margin-bottom:12px; }
+  .verdict p { color:#8faabf; margin-bottom:9px; font-size:14px; }
+  .verdict p:last-child { margin-bottom:0; }
+  .verdict .conclu { font-size:14.5px; font-weight:600; color:var(--heading); border-top:1px solid var(--border); padding-top:13px; margin-top:13px; }
+
+  .gap { height:26px; } .gap-s { height:10px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-badge">🔬 Analyse Forum · ALMDT · Euronext Growth Paris · PEA-PME</div>
+    <h1>Median Technologies — Analyse Fondamentale<br>+ Perspectives CT / MT / LT</h1>
+    <div class="hero-meta">
+      <span>📅 26 février 2026</span>
+      <span>💶 Cours ~5,40 €</span>
+      <span>🏥 IA médicale — cancer du poumon</span>
+      <span>⚠️ NPC — pas un conseil en investissement</span>
+    </div>
+  </div>
+
+  <!-- ALERTE FDA -->
+  <div class="alert-fda">
+    <div class="at">🚨 Événement majeur — 9 février 2026</div>
+    <p><strong>eyonis® LCS obtient l'autorisation 510(k) de la FDA !</strong> C'est l'aboutissement de plus de 6 ans de R&D et d'études cliniques. Median est désormais autorisée à commercialiser son logiciel de dépistage IA du cancer du poumon aux États-Unis.</p>
+    <p>Le <strong>12 février 2026</strong>, Median a signé un accord de distribution avec <strong>Tempus AI (NASDAQ : TEM)</strong> via la plateforme Tempus Pixel. Les <strong>premiers sites américains opérationnels sont attendus au T3 2026.</strong></p>
+  </div>
+
+  <!-- KPIs -->
+  <div class="slbl">Chiffres clés</div>
+  <div class="kg">
+    <div class="kpi">
+      <div class="kl">CA annuel 2025</div>
+      <div class="kv">23,5 M€</div>
+      <div class="kd up">▲ +2,6%</div>
+      <div class="ks">malgré impact forex -0,8 M€</div>
+    </div>
+    <div class="kpi">
+      <div class="kl">Carnet de commandes</div>
+      <div class="kv">76,6 M€</div>
+      <div class="kd blue">≈ 83,1 M€*</div>
+      <div class="ks">*à taux de change constant</div>
+    </div>
+    <div class="kpi">
+      <div class="kl">Trésorerie (31/12/25)</div>
+      <div class="kv">18,2 M€</div>
+      <div class="kd up">Financement T4 2026+</div>
+      <div class="ks">après opérations refinancement</div>
+    </div>
+    <div class="kpi">
+      <div class="kl">Perte nette S1 2025</div>
+      <div class="kv">-9,2 M€</div>
+      <div class="kd up">▼ -26%</div>
+      <div class="ks">vs -12,5 M€ en S1 2024</div>
+    </div>
+    <div class="kpi">
+      <div class="kl">Financement BEI</div>
+      <div class="kv">37,5 M€</div>
+      <div class="kd purple">19 M€ déjà encaissés</div>
+      <div class="ks">Banque Européenne d'Investissement</div>
+    </div>
+    <div class="kpi">
+      <div class="kl">Patients éligibles US</div>
+      <div class="kv">14,5 M</div>
+      <div class="kd blue">$601-700/examen</div>
+      <div class="ks">remboursement Medicare New Tech APC</div>
+    </div>
+  </div>
+
+  <!-- PRÉSENTATION -->
+  <div class="gap"></div>
+  <div class="slbl">Présentation — qui est Median Technologies ?</div>
+  <div class="card">
+    <h3><span class="ic">🔬</span> Pionnier de l'IA pour le diagnostic précoce du cancer</h3>
+    <p>Fondée à Sophia Antipolis, <strong>Median Technologies est une medtech française spécialisée dans les logiciels dispositifs médicaux (SaMD) basés sur l'IA pour le diagnostic précoce des cancers</strong>. La société opère sur deux segments complémentaires :</p>
+    <table class="dt">
+      <tr><th>Segment</th><th>Description</th><th>Contribution CA</th></tr>
+      <tr><td>iCRO</td><td style="color:#8faabf;font-size:12px">Analyses d'images IA + services centraux d'imagerie pour essais cliniques en oncologie (pharma)</td><td class="b">100% du CA actuel</td></tr>
+      <tr><td>eyonis® (à venir)</td><td style="color:#8faabf;font-size:12px">Suite de logiciels SaMD pour diagnostic précoce des cancers (poumon, foie, pancréas…)</td><td class="p">0% → potentiel massif</td></tr>
+    </table>
+    <p style="margin-top:10px">Le segment iCRO génère <span class="hl">toute la trésorerie actuelle</span> et finance le développement d'eyonis®. Median participe à <strong>306 essais cliniques actifs</strong>, dont une part significative en phase III — la phase la plus lucrative pour les CRO d'imagerie.</p>
+  </div>
+
+  <!-- ICRO -->
+  <div class="gap"></div>
+  <div class="slbl">Analyse des résultats — activité iCRO</div>
+  <div class="card">
+    <h3><span class="ic">📊</span> iCRO : moteur de trésorerie avec accélération en 2026</h3>
+    <p>Le CA annuel 2025 atteint <span class="hl">23,5 M€ (+2,6%)</span>, légèrement pénalisé par un impact forex de -0,8 M€. Sans cet effet de change, la croissance organique atteint +6%. L'activité démontre une progression régulière et prévisible.</p>
+    <div class="stat-row">
+      <div class="stat"><div class="stat-v" style="color:var(--green)">306</div><div class="stat-l">essais cliniques actifs</div></div>
+      <div class="stat"><div class="stat-v" style="color:var(--accent)">76,6 M€</div><div class="stat-l">carnet de commandes</div></div>
+      <div class="stat"><div class="stat-v" style="color:var(--purple)">T4 2025</div><div class="stat-l">prises de commandes record</div></div>
+    </div>
+    <p>Point crucial : le <strong>carnet de commandes de 76,6 M€</strong> au 31/12/2025 — son niveau le plus élevé — représente <span class="hl">plus de 3 ans de chiffre d'affaires</span>. Les prises de commandes du T4 ont été qualifiées d'<strong>exceptionnelles</strong> par le management, annonçant une <span class="hl">accélération de la croissance iCRO en 2026.</span></p>
+    <p>En 2026, Median ambitionne d'élargir son portefeuille clients parmi les grands groupes pharmaceutiques mondiaux et de renforcer son positionnement sur les études Phase III, les plus rentables.</p>
+  </div>
+
+  <!-- FDA & EYONIS -->
+  <div class="gap"></div>
+  <div class="slbl">Le game-changer — eyonis® LCS & autorisation FDA</div>
+  <div class="card">
+    <h3><span class="ic">🫁</span> eyonis® LCS : le premier SaMD IA pour le cancer du poumon aux US</h3>
+    <p>L'autorisation FDA 510(k) obtenue le <span class="hl">9 février 2026</span> est l'événement fondateur pour la valorisation de Median Technologies. Voici pourquoi ce marché est exceptionnel :</p>
+    <div class="mkt-grid">
+      <div class="mkt">
+        <div class="mkt-n">Population cible US</div>
+        <div class="mkt-v" style="color:var(--green)">14,5 M</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:4px">éligibles USPSTF</div>
+      </div>
+      <div class="mkt">
+        <div class="mkt-n">Remboursement</div>
+        <div class="mkt-v" style="color:var(--accent)">$601-700</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:4px">par examen (Medicare OPPS)</div>
+      </div>
+      <div class="mkt">
+        <div class="mkt-n">Taux de dépistage actuel</div>
+        <div class="mkt-v" style="color:var(--warn)">~6%</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:4px">vs 60-80% pour le sein/colon</div>
+      </div>
+    </div>
+    <p style="margin-top:12px">La performance clinique d'eyonis® LCS est remarquable : <strong>sensibilité de 93,3%</strong>, spécificité de 92,4% et <strong>valeur prédictive négative de 99,9%</strong> — ce qui signifie que quasi aucun cancer n'est manqué. Le taux de faux positifs est de seulement <span class="hl">1 pour 1 000</span>, évitant des biopsies inutiles.</p>
+    <p>L'accord de distribution avec <strong>Tempus AI</strong> (NASDAQ : TEM) — acteur majeur de l'IA en médecine de précision — est stratégiquement idéal : Tempus distribuera eyonis® LCS via <strong>Tempus Pixel</strong> dans les centres d'imagerie américains, et accompagnera aussi le déploiement européen après obtention du <span class="hlb">marquage CE prévu au T2 2026.</span></p>
+  </div>
+
+  <!-- TIMELINE CATALYSEURS -->
+  <div class="gap"></div>
+  <div class="slbl">Actualités récentes & calendrier</div>
+  <div class="card">
+    <h3><span class="ic">📌</span> Jalons clés — T1/T2 2026</h3>
+    <div class="tl">
+      <div class="tli">
+        <div class="tld green"></div>
+        <div class="tldate">9 FÉV 2026 ✅</div>
+        <div class="tllbl">Autorisation FDA 510(k) pour eyonis® LCS <span class="tag tg">OBTENU</span></div>
+        <div class="tldesc">Aboutissement de 6 ans de R&D. Premier SaMD IA pour dépistage du cancer du poumon autorisé aux US. Sensibilité 93,3%, VPN 99,9%.</div>
+      </div>
+      <div class="tli">
+        <div class="tld green"></div>
+        <div class="tldate">12 FÉV 2026 ✅</div>
+        <div class="tllbl">Accord de distribution avec Tempus AI (NASDAQ: TEM) <span class="tag tg">SIGNÉ</span></div>
+        <div class="tldesc">Distribution via Tempus Pixel dans les centres d'imagerie US. Accord valable aussi pour le déploiement européen post-CE.</div>
+      </div>
+      <div class="tli">
+        <div class="tld"></div>
+        <div class="tldate">18 FÉV 2026 ✅</div>
+        <div class="tllbl">Nomination d'Oran Muduroglu — Président Median eyonis Inc.</div>
+        <div class="tldesc">Renforcement de l'équipe commerciale US. Stratégie de lancement progressive et ciblée par zones géographiques à fort volume.</div>
+      </div>
+      <div class="tli">
+        <div class="tld"></div>
+        <div class="tldate">26 FÉV 2026</div>
+        <div class="tllbl">Webconférences investisseurs — aujourd'hui ! <span class="tag tb">CE JOUR</span></div>
+        <div class="tldesc">Présentation des avancées et prochaines étapes du déploiement commercial aux États-Unis.</div>
+      </div>
+      <div class="tli">
+        <div class="tld purple"></div>
+        <div class="tldate">T2 2026</div>
+        <div class="tllbl">Marquage CE eyonis® LCS en Europe <span class="tag tp">ATTENDU</span></div>
+        <div class="tldesc">Ouverture du marché européen via Tempus AI pour le déploiement en parallèle.</div>
+      </div>
+      <div class="tli">
+        <div class="tld"></div>
+        <div class="tldate">T3 2026</div>
+        <div class="tllbl">Premiers sites américains opérationnels <span class="tag tw">OBJECTIF</span></div>
+        <div class="tldesc">Début des premières installations et des premiers revenus commerciaux eyonis® aux US.</div>
+      </div>
+      <div class="tli">
+        <div class="tld"></div>
+        <div class="tldate">23 AVR 2026</div>
+        <div class="tllbl">Résultats annuels complets 2025 <span class="tag tb">CALENDRIER</span></div>
+        <div class="tldesc">Prochaine publication financière majeure avec EBITDA, bilan et guidance 2026.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FINANCES & RISQUES -->
+  <div class="gap"></div>
+  <div class="slbl">Situation financière — forces et vigilances</div>
+  <div class="card">
+    <h3><span class="ic">💰</span> Bilan : sécurisé jusqu'à fin 2026 au moins</h3>
+    <p>Median a considérablement renforcé sa structure financière en 2025 :</p>
+    <ul class="ul">
+      <li>Augmentation de capital de <strong>23,9 M€</strong> en août 2025</li>
+      <li>Prêt BEI de <strong>37,5 M€</strong> — dont 19 M€ déjà encaissés (tranche 2 restante)</li>
+      <li>Trésorerie de <strong>18,2 M€</strong> au 31/12/2025 → financement assuré jusqu'en <span class="hl">T4 2026 minimum</span></li>
+    </ul>
+    <p style="margin-top:10px">La perte nette continue de se réduire : <span class="hl">-9,2 M€ au S1 2025 vs -12,5 M€</span> au S1 2024 (-26%). L'amélioration de l'efficacité opérationnelle combinée à la croissance du CA réduit mécaniquement le cash-burn.</p>
+    <p><strong>Question centrale :</strong> la commercialisation d'eyonis® LCS va-t-elle générer des revenus suffisants avant d'avoir besoin d'une nouvelle levée de fonds ? Le T3/T4 2026 seront déterminants.</p>
+  </div>
+
+  <!-- PERSPECTIVES -->
+  <div class="gap"></div>
+  <div class="slbl">Perspectives CT / MT / LT</div>
+  <div class="pg">
+    <div class="pc">
+      <div class="hz" style="color:var(--accent)">🕐 CT · 0-6 mois</div>
+      <h4>Catalyseurs</h4>
+      <ul>
+        <li>Premiers revenus eyonis® LCS aux US (T3)</li>
+        <li>Marquage CE Europe (T2)</li>
+        <li>Résultats annuels 23 avril</li>
+        <li>Accélération iCRO (carnet record T4)</li>
+        <li>Nouveaux accords de distribution</li>
+      </ul>
+      <h4 style="margin-top:10px;color:var(--warn)">Risques CT</h4>
+      <ul>
+        <li>Adoption commerciale lente sur le terrain</li>
+        <li>Pression sur la trésorerie si lancement tardif</li>
+        <li>Impact négatif du dollar (forex)</li>
+      </ul>
+    </div>
+    <div class="pc">
+      <div class="hz" style="color:var(--green)">📅 MT · 6-18 mois</div>
+      <h4>Moteurs</h4>
+      <ul>
+        <li>Montée en charge eyonis® LCS (US + Europe)</li>
+        <li>Remboursement élargi Medicare (au-delà New Tech APC)</li>
+        <li>Développement eyonis® IPN (nodules pulmonaires)</li>
+        <li>eyonis® HCC (cancer du foie)</li>
+        <li>Croissance iCRO grâce au carnet record</li>
+      </ul>
+      <h4 style="margin-top:10px;color:var(--warn)">Risques MT</h4>
+      <ul>
+        <li>Besoin de financement supplémentaire</li>
+        <li>Concurrence d'autres SaMD IA (Nuance, Viz.ai…)</li>
+        <li>Délais d'intégration dans les workflows cliniques</li>
+      </ul>
+    </div>
+    <div class="pc">
+      <div class="hz" style="color:var(--purple)">🔭 LT · 18 mois+</div>
+      <h4>Thèse haussière</h4>
+      <ul>
+        <li>Standard mondial du dépistage IA du cancer</li>
+        <li>Extension à 5+ indications (pancréas, côlon, HCC…)</li>
+        <li>Changement de modèle économique (abonnements SaaS)</li>
+        <li>M&A possible (acquisition par pharma/medtech major)</li>
+        <li>14,5 M patients éligibles = potentiel marché ~8-10 Md$/an aux US</li>
+      </ul>
+      <h4 style="margin-top:10px;color:var(--danger)">Risques LT</h4>
+      <ul>
+        <li>Géants (Google Health, Microsoft, Amazon) sur le marché</li>
+        <li>Remboursement insuffisant ou retardé</li>
+        <li>Dilution via futures levées de fonds</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- VERDICT -->
+  <div class="gap"></div>
+  <div class="slbl">Mon avis personnel</div>
+  <div class="verdict">
+    <div class="vt">💬 Verdict</div>
+    <p>Median Technologies est une <strong>valeur de conviction à long terme</strong> pour les investisseurs qui croient en la convergence IA + santé. La société vient de franchir l'étape la plus difficile — l'autorisation réglementaire FDA — après plus de 6 ans de R&D et deux études pivots réussies.</p>
+    <p>Ce qui change fondamentalement la thèse d'investissement en 2026 :</p>
+    <ul class="ul" style="margin:8px 0">
+      <li>Median passe du statut de <strong>société en développement</strong> → <span class="hl">société commerciale</span></li>
+      <li>L'accord Tempus AI donne un accès immédiat au réseau américain sans infrastructure propre coûteuse</li>
+      <li>Le remboursement Medicare est <span class="hlb">déjà en place</span> (New Tech APC, $601-700/examen) — pas d'attente</li>
+      <li>Le taux de dépistage actuel du cancer du poumon aux US (<span class="hlw">~6%</span> seulement) est un marché quasi-vierge</li>
+    </ul>
+    <p><strong>Les inconnues qui restent :</strong> la vitesse d'adoption sur le terrain, la capacité commerciale de l'équipe, et la pérennité du financement si les revenus eyonis® tardent. Ce n'est pas une valeur sans risque — c'est une <span class="hlp">optionalité sur une disruption médicale majeure.</span></p>
+    <div class="conclu">
+      🎯 En résumé : <strong>dossier transformation en cours, moment charnière.</strong> Le catalyseur FDA est derrière nous, l'exécution commerciale commence maintenant. <span style="color:var(--warn);font-weight:600">La valeur réelle sera révélée par les premiers chiffres de revenus eyonis® au T3/T4 2026.</span> Résultats annuels le 23 avril = prochain rendez-vous clé.
+    </div>
+  </div>
+
+  <div style="margin-top:20px;padding:12px;background:var(--surface);border-radius:8px;font-size:11.5px;color:var(--muted);text-align:center;border:1px solid var(--border)">
+    Sources : Communiqués Median Technologies (oct. 2025, jan. 2026, fév. 2026), BusinessWire, Boursorama, Yahoo Finance · Analyse personnelle non professionnelle · Ne constitue pas un conseil en investissement · DYOR
+  </div>
+</div>
+</body>
+</html>

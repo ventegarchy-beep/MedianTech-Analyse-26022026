@@ -133,6 +133,14 @@
 
   /* STAT HIGHLIGHT */
   .stat-row { display:flex; gap:12px; flex-wrap:wrap; margin:12px 0; }
+  /* FIBO */
+  .frow { display:flex; align-items:center; gap:10px; padding:7px 0; border-bottom:1px solid var(--border); }
+  .frow:last-child { border-bottom:none; }
+  .flvl { font-family:'DM Mono',monospace; font-size:11px; color:var(--muted); width:55px; }
+  .fprice { font-family:'DM Mono',monospace; font-size:15px; font-weight:600; color:var(--heading); width:65px; }
+  .fbar { flex:1; height:4px; background:var(--surface2); border-radius:2px; overflow:hidden; }
+  .fbar-fill { height:100%; border-radius:2px; }
+  .ftag { width:100px; text-align:right; }
   .stat { background:var(--surface2); border:1px solid var(--border); border-radius:8px; padding:10px 14px; flex:1; min-width:130px; }
   .stat-v { font-family:'DM Mono',monospace; font-size:16px; font-weight:600; color:var(--heading); }
   .stat-l { font-size:11px; color:var(--muted); margin-top:2px; }
@@ -332,6 +340,61 @@
         <div class="tldesc">Prochaine publication financière majeure avec EBITDA, bilan et guidance 2026.</div>
       </div>
     </div>
+  </div>
+
+  <!-- ANALYSE TECHNIQUE -->
+  <div class="gap"></div>
+  <div class="slbl">Analyse technique — Graphique 1 semaine</div>
+  <div class="card">
+    <h3><span class="ic">📈</span> Niveaux Fibonacci — Retracement 7,76 € → 1,39 €</h3>
+    <p>Le graphique hebdomadaire montre un <strong>retracement de Fibonacci classique</strong> depuis le sommet à <span class="hlw">7,76 €</span> (0%) jusqu'au plancher à <span class="hlr">1,39 €</span> (100%). Le cours actuel à <span class="hl">5,17 €</span> se situe <strong>entre le 38,2% (5,327 €) et le 50% (4,575 €)</strong> — une zone de consolidation haussière.</p>
+
+    <div style="margin:14px 0">
+      <div class="frow">
+        <div class="flvl">0%</div>
+        <div class="fprice" style="color:var(--muted)">7,76 €</div>
+        <div class="fbar"><div class="fbar-fill" style="width:100%;background:#334155"></div></div>
+        <span class="ftag"><span class="tag tw">sommet</span></span>
+      </div>
+      <div class="frow">
+        <div class="flvl">23,6%</div>
+        <div class="fprice">6,257 €</div>
+        <div class="fbar"><div class="fbar-fill" style="width:80%;background:var(--green)"></div></div>
+        <span class="ftag"><span class="tag tg">R2</span></span>
+      </div>
+      <div class="frow" style="background:rgba(6,182,212,0.04);border-radius:6px;padding:7px 4px">
+        <div class="flvl" style="color:var(--accent)">38,2%</div>
+        <div class="fprice" style="color:var(--accent)">5,327 €</div>
+        <div class="fbar"><div class="fbar-fill" style="width:60%;background:var(--accent)"></div></div>
+        <span class="ftag"><span class="tag tb">R1 / résist.</span></span>
+      </div>
+      <div class="frow" style="background:rgba(245,158,11,0.04);border-radius:6px;padding:7px 4px">
+        <div class="flvl" style="color:var(--warn)">50%</div>
+        <div class="fprice" style="color:var(--warn)">4,575 €</div>
+        <div class="fbar"><div class="fbar-fill" style="width:45%;background:var(--warn)"></div></div>
+        <span class="ftag"><span class="tag tw">support clé</span></span>
+      </div>
+      <div class="frow">
+        <div class="flvl">61,8%</div>
+        <div class="fprice">3,823 €</div>
+        <div class="fbar"><div class="fbar-fill" style="width:30%;background:var(--accent2)"></div></div>
+        <span class="ftag"><span class="tag tp">S2</span></span>
+      </div>
+      <div class="frow">
+        <div class="flvl">100%</div>
+        <div class="fprice" style="color:var(--danger)">1,39 €</div>
+        <div class="fbar"><div class="fbar-fill" style="width:5%;background:#334155"></div></div>
+        <span class="ftag"><span class="tag tr">plancher</span></span>
+      </div>
+    </div>
+
+    <div style="background:rgba(16,185,129,0.07);border:1px solid rgba(16,185,129,0.25);border-radius:8px;padding:14px 16px;margin:12px 0;">
+      <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--green);margin-bottom:8px;">✅ Signal technique positif — RSI hebdo à 63,24</div>
+      <p style="color:#86efac;margin-bottom:6px;font-size:13.5px;">Le RSI (14) hebdomadaire à <strong style="color:#dcfce7">63,24</strong> est en zone haussière saine — <strong style="color:#dcfce7">bien loin de la surchauffe</strong> (qui commencerait vers 75-80). Il reste de la marge technique avant tout signal d'excès.</p>
+      <p style="color:#86efac;margin-bottom:0;font-size:13.5px;">Le MACD Zéro Lag vient de croiser à la hausse — signal de confirmation d'une <strong style="color:#dcfce7">reprise de tendance haussière en cours</strong>.</p>
+    </div>
+
+    <p>Le scénario technique : le cours doit <strong>franchir et consolider au-dessus de 5,327 € (Fibo 38,2%)</strong> pour confirmer la reprise et viser le prochain niveau à <span class="hl">6,257 € (23,6%)</span>. Le support à surveiller en cas de recul est la zone <span class="hlw">4,575 € (50%)</span> — un niveau solide dont le maintien est crucial pour la thèse haussière.</p>
   </div>
 
   <!-- FINANCES & RISQUES -->
